@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    content "MyText"
+    title { Faker::Lorem.sentence }
+    content { Faker::Lorem.sentence }
   end
 
 end

@@ -4,8 +4,10 @@ RSpec.feature "Post", :type => :feature do
     
     
   describe "Edit a post" do
-      let!(:post) {FactoryGirl.create :post}
-
+    let!(:post) {FactoryGirl.create :post}
+    background do
+      sign_in
+    end
     scenario "with valid input" do
         
       visit "/posts/1"
