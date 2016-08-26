@@ -7,9 +7,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    %ul.hmenu
-      = render 'layouts/registration_items'
-      = render 'layouts/login_items'
-    = yield
+    .container
+      = render 'layouts/shared/alerts'
+      %ul.hmenu
+        = render 'layouts/shared/registration_items'
+        = render 'layouts/shared/login_items'
+      = yield
