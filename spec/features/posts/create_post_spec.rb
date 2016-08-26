@@ -24,7 +24,7 @@ RSpec.feature "Post", :type => :feature do
   
       click_button "Save"
       
-      expect(page).to have_text("Content can't be blank")
+      expect(page).to have_text("can't be blank")
     end
     
     scenario "with missing title" do
@@ -33,15 +33,14 @@ RSpec.feature "Post", :type => :feature do
   
       click_button "Save"
       
-      expect(page).to have_text("Title can't be blank")
+      expect(page).to have_text("can't be blank")
     end
     
     scenario "with empty post" do
   
       click_button "Save"
       
-      expect(page).to have_text("Title can't be blank")
-      expect(page).to have_text("Content can't be blank")
+      expect(page).to have_text("can't be blank")
     end
     
     scenario "from main page" do
@@ -50,8 +49,7 @@ RSpec.feature "Post", :type => :feature do
   
       click_button "Save"
       
-      expect(page).to have_text("Title can't be blank")
-      expect(page).to have_text("Content can't be blank")
+      expect(page).to have_text("can't be blank")
     end
     
     scenario "only user can access new post path" do

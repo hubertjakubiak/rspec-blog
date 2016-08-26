@@ -30,7 +30,7 @@ RSpec.feature "Post", :type => :feature do
   
       click_button "Save"
   
-      expect(page).to have_text("Title can't be blank")
+      expect(page).to have_text("can't be blank")
     end
 end
 

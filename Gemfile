@@ -58,4 +58,5 @@ end
 gem "haml-rails", "~> 0.9"
 gem 'faker', '~> 1.6.1'
 gem 'devise', '~> 4.2'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
