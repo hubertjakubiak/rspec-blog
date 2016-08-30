@@ -1,7 +1,9 @@
   require 'rails_helper'
 
-RSpec.feature "Post", :type => :feature do
-  describe "Create a new post" do
+RSpec.feature "User create post", :type => :feature do
+    
+    let! (:post) {FactoryGirl.create_list(:post, 10) }
+    
     background do
       sign_in
       visit "/posts/new"
@@ -49,15 +51,26 @@ RSpec.feature "Post", :type => :feature do
   
       click_button "Save"
       
-      expect(page).to have_text("can't be blank")
+      page_should_contain_error_about_cant_be_blank
     end
     
-    scenario "only user can access new post path" do
+    scenario "after logout and fails" do
       logout
       visit root_path
-      click_link "New Post"
+      click_new_post_link
       
       expect(page).to have_text("You need to")
     end
-  end
+    
+    scenario "there should be 10 posts" do
+      expect(Post.count).to eq(10)
+    end
+    
+    def click_new_post_link
+      click_link "New Post"
+    end
+    
+    def page_should_contain_error_about_cant_be_blank
+      expect(page).to have_text("can't be blank")
+    end
 end
